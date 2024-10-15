@@ -25,7 +25,7 @@ use App\Http\Controllers\AuthController;
 
 Route::apiResource('solicitudes', SolicitudController::class);
 
-Route::get('solicitudes/pdf/{id}', [SolicitudController::class, 'generarPDF']);
+// Route::get('solicitudes/pdf/{id}', [SolicitudController::class, 'generarPDF']);
 
 // Rutas adicionales para UserController o cualquier otro controlador
 // Puedes definir aquí más rutas según sea necesario.
@@ -38,6 +38,8 @@ Route::middleware('auth:sanctum')->group(function () {
     // Route::apiResource('solicitudes', SolicitudController::class);
     Route::get('/usuarios', [UserController::class, 'mostrarUsuarios']);
     Route::post('/logout', [AuthController::class, 'logout']);   // Listar usuarios
+    Route::get('/solicitudes/{id}/pdf', [SolicitudController::class, 'generatePDF']);
+
 });
 
 // Route::post('/login', [UserController::class, 'login']); // Ruta para login

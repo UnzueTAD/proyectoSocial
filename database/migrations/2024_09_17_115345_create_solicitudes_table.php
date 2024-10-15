@@ -16,7 +16,7 @@ class CreateSolicitudesTable extends Migration
             $table->string('nombre_completo');
             $table->string('rut');
             $table->string('digito_verificador');
-            $table->string('motivo_solicitud');
+            $table->text('motivo_solicitud');
             $table->date('fecha_solicitud');
             $table->string('sector');
             $table->string('estado_solicitud');
