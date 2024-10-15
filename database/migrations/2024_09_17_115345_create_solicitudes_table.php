@@ -20,7 +20,8 @@ class CreateSolicitudesTable extends Migration
             $table->date('fecha_solicitud');
             $table->string('sector');
             $table->string('estado_solicitud');
-            $table->string('departamento');
+            $table->string('contacto');
+            $table->string('localidad');
             $table->timestamps();  // Para las columnas created_at y updated_at
         });
     }

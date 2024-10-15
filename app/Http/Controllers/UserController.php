@@ -19,7 +19,7 @@ class UserController extends Controller
         'name' => 'required|string|max:255',
         'email' => 'required|string|email|max:255|unique:users',
         'password' => 'required|string|min:8',
-        'role_id' => 'required|exists:roles,id', // Validar que el rol exista
+
     ]);
 
     // Crear un nuevo usuario
@@ -27,7 +27,7 @@ class UserController extends Controller
         'name' => $validatedData['name'],
         'email' => $validatedData['email'],
         'password' => bcrypt($validatedData['password']), // Hashear la contraseña
-        'role_id' => $validatedData['role_id'], // Asignar el rol
+    
     ]);
     
 

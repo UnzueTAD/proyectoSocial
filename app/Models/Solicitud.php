@@ -19,7 +19,8 @@ class Solicitud extends Model
         'fecha_solicitud',
         'sector',
         'estado_solicitud',
-        'departamento',
+        'contacto',
+        'localidad',
     ];
 
     // Si la tabla no sigue la convención plural del nombre del modelo, puedes definirla aquí (opcional)

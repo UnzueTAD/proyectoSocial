@@ -21,11 +21,9 @@ use App\Http\Controllers\AuthController;
 */
 
 // Rutas para Solicitud utilizando el controlador de tipo resource
-Route::apiResource('solicitudes', SolicitudController::class);
-Route::apiResource('sectores', SectorController::class);
-Route::apiResource('estado-solicitudes', EstadoSolicitudController::class);
-Route::apiResource('departamentos', DepartamentoController::class);
+//Route::apiResource('solicitudes', SolicitudController::class);
 
+Route::apiResource('solicitudes', SolicitudController::class);
 
 Route::get('solicitudes/pdf/{id}', [SolicitudController::class, 'generarPDF']);
 
@@ -37,11 +35,13 @@ Route::get('solicitudes/pdf/{id}', [SolicitudController::class, 'generarPDF']);
 Route::middleware('auth:sanctum')->group(function () {
     // Rutas protegidas
     // Route::post('/usuarios', [UserController::class, 'store']);  // Crear usuario
-    Route::get('/usuarios', [UserController::class, 'mostrarUsuarios']);   // Listar usuarios
+    // Route::apiResource('solicitudes', SolicitudController::class);
+    Route::get('/usuarios', [UserController::class, 'mostrarUsuarios']);
+    Route::post('/logout', [AuthController::class, 'logout']);   // Listar usuarios
 });
 
-Route::post('/login', [UserController::class, 'login']); // Ruta para login
-Route::post('/logout', [UserController::class, 'logout'])->middleware('auth:sanctum'); // Ruta para logout (protegida)
+// Route::post('/login', [UserController::class, 'login']); // Ruta para login
+// Route::post('/logout', [UserController::class, 'logout'])->middleware('auth:sanctum'); // Ruta para logout (protegida)
 
 //FIN APARTADO LOGGIN
 
@@ -49,17 +49,10 @@ Route::post('/logout', [UserController::class, 'logout'])->middleware('auth:sanc
 //Route::post('/users', [UserController::class, 'store']);
 
 
-
-
-
-
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
     
 });
 
-
-
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
-Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logout']);
