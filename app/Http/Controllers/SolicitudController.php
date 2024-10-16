@@ -32,9 +32,8 @@ class SolicitudController extends Controller
             $query->where('sector', $sector);
         }
 
-        if ($rut && $digito_verificador) {
-            $query->where('rut', $rut)
-                  ->where('digito_verificador', $digito_verificador);
+        if ($rut) {
+            $query->where('rut', $rut);
         }
 
         if ($id) {
